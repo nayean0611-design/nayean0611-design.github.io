@@ -6,15 +6,15 @@
 
 :root {
     /* ── 색상 (여기만 바꾸면 전체 색이 바뀝니다) ── */
-    --navy: #26344c;
+    --navy: #1b2a41;
     /* 기본 글자 · 진한 배경 */
-    --accent: #e3562a;
+    --accent: #4d6b85;
     /* 강조색 (원하는 색으로 변경) */
-    --text: #343b47;
-    --text-mute: #6b7480;
-    --line: #e2e6ec;
+    --text: #2d3748;
+    --text-mute: #5f6b7d;
+    --line: #dde3ea;
     --bg: #ffffff;
-    --bg-alt: #f7f8fa;
+    --bg-alt: #eef1f6;
 
     /* ── 여백 · 모양 ── */
     --radius: 10px;
@@ -197,7 +197,7 @@ ul {
 }
 
 .btn-primary:hover {
-    background: #c94a22;
+    background: #3c5468;
 }
 
 .btn-ghost {
