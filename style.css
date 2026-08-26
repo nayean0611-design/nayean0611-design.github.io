@@ -1,0 +1,619 @@
+/* ══════════════════════════════════════════════════════════════
+   포트폴리오 웹사이트 템플릿  —  style.css
+   ══════════════════════════════════════════════════════════════
+   색을 바꾸고 싶으면 아래 :root 의 값만 수정하면 전체에 적용됩니다.
+   ══════════════════════════════════════════════════════════════ */
+
+:root {
+    /* ── 색상 (여기만 바꾸면 전체 색이 바뀝니다) ── */
+    --navy: #26344c;
+    /* 기본 글자 · 진한 배경 */
+    --accent: #e3562a;
+    /* 강조색 (원하는 색으로 변경) */
+    --text: #343b47;
+    --text-mute: #6b7480;
+    --line: #e2e6ec;
+    --bg: #ffffff;
+    --bg-alt: #f7f8fa;
+
+    /* ── 여백 · 모양 ── */
+    --radius: 10px;
+    --max-width: 900px;
+    --section-gap: 90px;
+}
+
+/* ── 기본 초기화 ─────────────────────────────── */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
+}
+
+body {
+    font-family: "Pretendard", "Apple SD Gothic Neo", "Malgun Gothic",
+        system-ui, -apple-system, sans-serif;
+    color: var(--text);
+    background: var(--bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.container {
+    width: 100%;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+}
+
+/* ── 상단 메뉴 ───────────────────────────────── */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.92);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid var(--line);
+}
+
+.nav-wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 64px;
+}
+
+.logo {
+    font-weight: 800;
+    font-size: 18px;
+    color: var(--navy);
+    letter-spacing: -0.3px;
+}
+
+.nav {
+    display: flex;
+    gap: 26px;
+}
+
+.nav a {
+    font-size: 14.5px;
+    color: var(--text-mute);
+    font-weight: 500;
+    transition: color 0.15s;
+}
+
+.nav a:hover,
+.nav a.active {
+    color: var(--accent);
+}
+
+/* 모바일 햄버거 버튼 */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    background: none;
+    border: 0;
+    cursor: pointer;
+    padding: 8px;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 22px;
+    height: 2px;
+    background: var(--navy);
+    transition: transform 0.2s, opacity 0.2s;
+}
+
+.nav-toggle.open span:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+}
+
+.nav-toggle.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.open span:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+}
+
+/* ── 첫 화면 ─────────────────────────────────── */
+.hero {
+    padding: 110px 0 100px;
+    border-bottom: 1px solid var(--line);
+}
+
+.hero-hello {
+    color: var(--accent);
+    font-weight: 700;
+    font-size: 15px;
+    letter-spacing: 0.5px;
+    margin-bottom: 10px;
+}
+
+.hero-name {
+    font-size: clamp(38px, 7vw, 58px);
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -1.5px;
+    line-height: 1.15;
+}
+
+.hero-name .dot {
+    color: var(--accent);
+}
+
+.hero-role {
+    margin-top: 14px;
+    font-size: clamp(17px, 2.6vw, 22px);
+    font-weight: 600;
+    color: var(--navy);
+}
+
+.hero-desc {
+    margin-top: 14px;
+    max-width: 620px;
+    color: var(--text-mute);
+}
+
+.hero-actions {
+    margin-top: 32px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* ── 버튼 ────────────────────────────────────── */
+.btn {
+    display: inline-block;
+    padding: 11px 22px;
+    border-radius: var(--radius);
+    font-size: 14.5px;
+    font-weight: 600;
+    transition: transform 0.15s, background 0.15s, color 0.15s;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+}
+
+.btn-primary {
+    background: var(--accent);
+    color: #fff;
+}
+
+.btn-primary:hover {
+    background: #c94a22;
+}
+
+.btn-ghost {
+    border: 1.5px solid var(--line);
+    color: var(--navy);
+}
+
+.btn-ghost:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+}
+
+/* ── 섹션 공통 ───────────────────────────────── */
+.section {
+    padding: var(--section-gap) 0;
+}
+
+.section-alt {
+    background: var(--bg-alt);
+}
+
+.section-title {
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--navy);
+    letter-spacing: -0.5px;
+    margin-bottom: 34px;
+}
+
+.section-title .num {
+    color: var(--accent);
+    font-size: 15px;
+    margin-right: 8px;
+    vertical-align: 3px;
+}
+
+.sub-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--navy);
+    margin: 26px 0 12px;
+}
+
+.sub-title:first-of-type {
+    margin-top: 0;
+}
+
+/* ── About ───────────────────────────────────── */
+.about-wrap {
+    display: flex;
+    align-items: flex-start;
+    gap: 36px;
+}
+
+.about-photo {
+    flex-shrink: 0;
+    width: 140px;
+    height: 140px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 3px solid var(--line);
+}
+
+.about-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.about-list {
+    flex: 1;
+    min-width: 0;
+    display: grid;
+    gap: 14px;
+}
+
+.about-list li {
+    display: grid;
+    grid-template-columns: 120px 1fr;
+    gap: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--line);
+}
+
+.about-list strong {
+    color: var(--accent);
+    font-size: 14.5px;
+}
+
+/* ── 기술 태그 ───────────────────────────────── */
+.tag-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.tag {
+    padding: 6px 14px;
+    border-radius: 999px;
+    border: 1px solid var(--line);
+    background: #fff;
+    font-size: 13.5px;
+    color: var(--text-mute);
+}
+
+.tag-main {
+    border-color: var(--navy);
+    color: var(--navy);
+    font-weight: 600;
+}
+
+.tag-list.small .tag {
+    font-size: 12.5px;
+    padding: 4px 11px;
+}
+
+/* ── 프로젝트 카드 ───────────────────────────── */
+.project-grid {
+    display: grid;
+    gap: 18px;
+}
+
+.card {
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    background: #fff;
+    overflow: hidden;
+    transition: transform 0.18s, box-shadow 0.18s, border-color 0.18s;
+}
+
+.card:hover {
+    transform: translateY(-3px);
+    border-color: #cfd5de;
+    box-shadow: 0 8px 24px rgba(38, 52, 76, 0.07);
+}
+
+/* 썸네일 이미지. 없으면 이 블록의 <div class="card-thumb"> 를 통째로 지운다 */
+.card-thumb {
+    aspect-ratio: 16 / 9;
+    background: var(--bg-alt);
+    border-bottom: 1px solid var(--line);
+}
+
+.card-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.card-body {
+    padding: 26px;
+}
+
+.card-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.card-head h3 {
+    font-size: 18.5px;
+    font-weight: 700;
+    color: var(--navy);
+}
+
+.period {
+    font-size: 13px;
+    color: var(--text-mute);
+}
+
+.role {
+    margin-top: 4px;
+    font-size: 13.5px;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.card-desc {
+    margin-top: 12px;
+    color: var(--text-mute);
+    font-size: 15px;
+}
+
+.result {
+    margin-top: 10px;
+    font-size: 14.5px;
+}
+
+.result strong {
+    display: inline-block;
+    margin-right: 6px;
+    color: var(--navy);
+}
+
+/* 주요 기능 · 트러블슈팅 블록 */
+.card-block {
+    margin-top: 16px;
+}
+
+.card-block h4 {
+    font-size: 12.5px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: -0.2px;
+    margin-bottom: 8px;
+}
+
+.feature-list {
+    display: grid;
+    gap: 6px;
+    font-size: 14px;
+    color: var(--text-mute);
+}
+
+.feature-list li {
+    position: relative;
+    padding-left: 18px;
+}
+
+.feature-list li::before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: var(--accent);
+    font-weight: 700;
+}
+
+.troubleshoot {
+    font-size: 14px;
+    color: var(--text-mute);
+    background: var(--bg-alt);
+    border-left: 3px solid var(--accent);
+    border-radius: 4px;
+    padding: 10px 14px;
+}
+
+.card .tag-list {
+    margin-top: 16px;
+}
+
+.card-links {
+    margin-top: 18px;
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+}
+
+.card-links a {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--navy);
+    border-bottom: 1.5px solid transparent;
+    transition: color 0.15s, border-color 0.15s;
+}
+
+.card-links a:hover {
+    color: var(--accent);
+    border-color: var(--accent);
+}
+
+/* ── Activities ──────────────────────────────── */
+.timeline {
+    display: grid;
+    gap: 0;
+}
+
+.timeline li {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    gap: 16px;
+    padding: 16px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.timeline li:first-child {
+    border-top: 1px solid var(--line);
+}
+
+.date {
+    font-size: 14px;
+    color: var(--accent);
+    font-weight: 600;
+}
+
+.event {
+    font-size: 15px;
+}
+
+/* ── Contact ─────────────────────────────────── */
+.contact-lead {
+    color: var(--text-mute);
+    margin-bottom: 24px;
+}
+
+.contact-links {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+/* ── 푸터 ────────────────────────────────────── */
+.site-footer {
+    padding: 30px 0;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    font-size: 13.5px;
+    color: var(--text-mute);
+}
+
+/* ── 맨 위로 버튼 ────────────────────────────── */
+.to-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    border: 0;
+    background: var(--navy);
+    color: #fff;
+    font-size: 17px;
+    cursor: pointer;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.2s, transform 0.2s;
+}
+
+.to-top.show {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.to-top:hover {
+    transform: translateY(-3px);
+}
+
+/* ── 스크롤 등장 효과 ────────────────────────── */
+.reveal {
+    opacity: 0;
+    transform: translateY(18px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.reveal.visible {
+    opacity: 1;
+    transform: none;
+}
+
+/* ── 모바일 ──────────────────────────────────── */
+@media (max-width: 720px) {
+    :root {
+        --section-gap: 64px;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav {
+        position: absolute;
+        top: 64px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        gap: 0;
+        background: #fff;
+        border-bottom: 1px solid var(--line);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.25s ease;
+    }
+
+    .nav.open {
+        max-height: 320px;
+    }
+
+    .nav a {
+        padding: 14px 24px;
+        border-top: 1px solid var(--line);
+    }
+
+    .hero {
+        padding: 70px 0 60px;
+    }
+
+    .about-list li,
+    .timeline li {
+        grid-template-columns: 1fr;
+        gap: 4px;
+    }
+
+    .about-wrap {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 20px;
+    }
+}
+
+/* ── 애니메이션 최소화 설정을 켠 사용자 배려 ──── */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    .reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
